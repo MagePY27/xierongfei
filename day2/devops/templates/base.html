@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head> <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title>运维平台</title>
+</head>
+<p> {% block tile %} 运维平台 {% endblock %} </p>
+ {% block content %}
+ {% endblock %}
+<!-- 每个⻚⾯都有个底部且样式基本不会变，可以抽象出来 -->
+<p style="background-color:blue;">版权所有：typuc@163.com</p>
+{% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+{% endif %}
+</body>
+</html>

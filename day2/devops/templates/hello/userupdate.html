@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<p> {% block tile %} 用户更新 {% endblock %} </p>
+{% block content %}
+<form action="/hello/userupdate.html" method="post">
+      用户名: <input type="text" name="user">  <input type="submit" value="搜索" name="search">
+</form>
+<table border="1">
+    <tr>
+        <td>姓名(只读）</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+{% for user in users %}
+   <form action="/hello/userupdate.html" method="post">
+       <tr >
+        <td> <input readonly="true"type="text" name="user" value={{user.name}}> </td>
+        <td> <input type="text" name="gender" value={{user.sex}}> </td>
+           <td> <input type="text" name="age" value={{user.age}}> </td>
+
+         <td>
+               <input type="submit" value="更新" name="update"><input type="submit" value="删除" name="delete">
+         </td>
+    </tr>
+     </form>
+    {% endfor %}
+</table>
+
+{% endblock %}
