@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+<p> {% block tile %} 用户删除 {% endblock %} </p>
+{% block content %}
+{% if msg.code == 0 %}
+<p style="color:green"> {{msg.result}} </p>
+{% else %}
+<p style="color:red"> {{msg.error}} </p>
+{% endif%}
+{% for user in users %}
+<form action="" method="post">
+<h2>是否删除用 {{ user.name }} ?</h2>
+    <button type="submit">删除</button>
+    <button><a href="{% url 'hello:userlist' %}">取消</a></button>
+</form>
+{% endfor %}
+
+{% endblock %}
